@@ -46,7 +46,12 @@ class HomeController extends Controller
             // ->where('id',1)
             // ->delete();
 
-        return view('home.index');
+      $blogs=DB::table('users')
+            ->join('blogs', 'blogs.user_id', '=', 'users.id')
+            ->join('blogs_detail', 'blogs_detail.blog_id', '=', 'blogs.id')
+            ->get();
+
+        return view('home.index')->with('blogs',$blogs);
     }
     public function detail(Request $request)
     {
