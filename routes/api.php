@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('blogs', 'HomeController@detail');
+Route::get('blogs/{id}', 'HomeController@show')->name('show');
