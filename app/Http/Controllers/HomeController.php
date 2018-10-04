@@ -52,6 +52,8 @@ class HomeController extends Controller
             ->get();
 
         return view('home.index')->with('blogs',$blogs);
+        //return view('welcome');
+
     }
     public function detail(Request $request)
     {
